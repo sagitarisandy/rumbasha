@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import { alumniRowOne, alumniRowTwo, stats, type Alumni } from "./data";
 import { AlumniIllustration, ChartIllustration, GraduationIllustration, LocationIllustration, SquareRing3D } from "./icons";
@@ -61,12 +62,13 @@ export default function BuktiAlumni() {
           </p>
         </Reveal>
 
-        <RevealGroup className="mt-[60px] grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+        <RevealGroup className="mt-[60px] grid grid-cols-1 gap-8 sm:grid-cols-2 lg:flex lg:items-start lg:justify-between lg:gap-6">
           {stats.map((stat, i) => {
             const Icon = statIcons[stat.icon];
             return (
-              <RevealItem key={stat.label} className="relative flex items-start gap-4">
-                {i > 0 && <span aria-hidden className="absolute -left-7 top-0 hidden h-20 w-px bg-lavender-200 lg:block" />}
+              <Fragment key={stat.label}>
+              {i > 0 && <span aria-hidden className="hidden h-20 w-px shrink-0 bg-lavender-200 lg:block" />}
+              <RevealItem className="relative flex items-start gap-4 lg:shrink-0">
                 <div className="grid h-[68px] w-[68px] shrink-0 place-items-center rounded-full bg-white shadow-badge">
                   <Icon className="h-[68px] w-[68px]" />
                 </div>
@@ -77,6 +79,7 @@ export default function BuktiAlumni() {
                   <p className="mt-1 text-base font-medium leading-[1.5] text-muted">{stat.label}</p>
                 </div>
               </RevealItem>
+              </Fragment>
             );
           })}
         </RevealGroup>
