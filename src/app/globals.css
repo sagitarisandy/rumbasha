@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+/* Design tokens taken from the Penpot file "Rumbasha — Landing Page Wireframe" / Home Option 2. */
+@theme {
+  --color-navy: #0e1168;
+  --color-indigo: #3f4197;
+  --color-indigo-700: #373a9f;
+  --color-orange: #f78433;
+  --color-orange-600: #e05f05;
+  --color-peach: #fdbd91;
+  --color-lavender: #f4f5ff;
+  --color-lavender-200: #e0e2f6;
+  --color-chip: #eef0fb;
+  --color-ring: #eef0fc;
+  --color-line: #e3e5f7;
+  --color-line-strong: #c9cbeb;
+  --color-muted: #4a4d7a;
+  --color-muted-2: #6b6e99;
+  --color-soft: #d9daff;
+  --color-footer-link: #b9bbe6;
+  --color-whatsapp: #13a65a;
+  --color-promo-red: #bc4253;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-tight: var(--font-inter-tight), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 16px 40px 0 rgb(14 17 104 / 0.08);
+  --shadow-badge: 0 8px 20px 0 rgb(14 17 104 / 0.1);
+  --shadow-float: 0 12px 32px 0 rgb(14 17 104 / 0.14);
+  --shadow-photo: 0 14px 30px 0 rgb(14 17 104 / 0.18);
+  --shadow-cta: 0 8px 20px 0 rgb(247 132 51 / 0.3);
+
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  --animate-marquee-reverse: marquee-reverse var(--marquee-duration, 40s) linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 9s ease-in-out infinite;
+  --animate-spin-slow: spin 24s linear infinite;
+  --animate-app-scroll: app-scroll 14s ease-in-out infinite;
+  --animate-pulse-ring: pulse-ring 2.2s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes marquee-reverse {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes app-scroll {
+    0%, 12% { transform: translateY(0); }
+    48%, 62% { transform: translateY(-575px); }
+    100% { transform: translateY(0); }
+  }
+  @keyframes pulse-ring {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    100% { transform: scale(1.45); opacity: 0; }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Section headings in the design use 0.03em tracking (e.g. 0.96px on 32px). */
+.heading-tracking {
+  letter-spacing: 0.03em;
+}
+
+.marquee-pause:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .motion-safe-anim,
+  .marquee-track {
+    animation: none !important;
+  }
+}
