@@ -6,7 +6,6 @@ import { motion } from "motion/react";
 import CtaBanner from "../home-option-2/CtaBanner";
 import Footer from "../home-option-2/Footer";
 import { Header, PromoBar } from "../home-option-2/Header";
-import { GraduationIllustration } from "../home-option-2/icons";
 import { Reveal, RevealGroup, RevealItem } from "../home-option-2/motion";
 
 // Copy from the Penpot board "Detail Siswa — Kisah Sukses (Rizky)".
@@ -142,7 +141,7 @@ export default function AlumniDetail() {
 
                 <Reveal delay={0.1} className="mt-6 flex flex-wrap items-center gap-4 rounded-2xl bg-white p-5 shadow-card">
                   <span className="grid h-14 w-14 place-items-center rounded-full bg-lavender">
-                    <GraduationIllustration className="h-14 w-14" />
+                    <Image src="/images/logos/sman-3-bandung.webp" alt="Logo SMA Negeri 3 Bandung" width={42} height={50} className="h-[38px] w-auto" />
                   </span>
                   <div className="flex-1">
                     <p className="text-[11px] font-semibold uppercase tracking-[2px] text-muted">Diterima di</p>
