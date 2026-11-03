@@ -80,12 +80,12 @@ export function Header({ active }: { active?: string }) {
         </nav>
 
         <div className="hidden items-center gap-[18px] lg:flex">
-          <a
-            href="#"
+          <Link
+            href="/login"
             className="inline-flex h-[46px] items-center rounded-xl border-[1.5px] border-line-strong px-5 text-[13px] font-semibold text-indigo transition hover:border-indigo hover:bg-lavender"
           >
             Login
-          </a>
+          </Link>
           <Link
             href="/#daftar"
             className="inline-flex h-[46px] items-center rounded-xl bg-orange px-5 text-[13px] font-semibold text-white shadow-cta transition hover:-translate-y-0.5 hover:bg-[#ff9248]"
@@ -133,9 +133,9 @@ export function Header({ active }: { active?: string }) {
               </div>
             ))}
             <div className="mt-3 grid grid-cols-2 gap-3">
-              <a href="#" className="grid h-11 place-items-center rounded-xl border-[1.5px] border-line-strong text-sm font-semibold text-indigo">
+              <Link href="/login" onClick={() => setOpen(false)} className="grid h-11 place-items-center rounded-xl border-[1.5px] border-line-strong text-sm font-semibold text-indigo">
                 Login
-              </a>
+              </Link>
               <Link href="/#daftar" onClick={() => setOpen(false)} className="grid h-11 place-items-center rounded-xl bg-orange text-sm font-semibold text-white">
                 Daftar Sekarang
               </Link>
