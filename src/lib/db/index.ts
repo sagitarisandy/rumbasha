@@ -39,8 +39,11 @@ async function connect(): Promise<DB> {
       await tx`SELECT pg_advisory_xact_lock(424241)`;
       await tx.unsafe(META);
       const [row] = await tx<{ value: string }[]>`SELECT value FROM rb_meta WHERE key = 'schema'`;
-      const legacy = !row && (await tx`SELECT 1 FROM pg_tables WHERE schemaname = 'public' AND tablename = 'users'`).length > 0;
-      if ((row && row.value !== SCHEMA_VERSION) || legacy) await tx.unsafe(`DROP SCHEMA public CASCADE; CREATE SCHEMA public; ${META}`);
+      // Never touch a database this app didn't create (no rb_meta row but other tables present).
+      if (!row && (await tx`SELECT 1 FROM pg_tables WHERE schemaname = 'public' AND tablename <> 'rb_meta'`).length > 0) {
+        throw new Error("DATABASE_URL points to a database that already has other tables. Use an empty database for Rumbasha.");
+      }
+      if (row && row.value !== SCHEMA_VERSION) await tx.unsafe(`DROP SCHEMA public CASCADE; CREATE SCHEMA public; ${META}`);
       await tx.unsafe(DDL);
       await tx`INSERT INTO rb_meta (key, value) VALUES ('schema', ${SCHEMA_VERSION}) ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value`;
     });
