@@ -4,7 +4,7 @@ import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useCallback, useEffect, useState } from "react";
 import { keunggulanSlides } from "./data";
-import { ChevronLeftThin, ChevronRightThin, Pyramid3D } from "./icons";
+import { ChevronLeft, ChevronRight, Pyramid3D } from "./icons";
 import { Reveal } from "./motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -35,9 +35,13 @@ export default function Keunggulan() {
       <div aria-hidden className="absolute -left-[79px] top-[536px] hidden h-[260px] w-[260px] rounded-full bg-indigo/[0.04] lg:block" />
       <Pyramid3D uid="keunggulan-pyramid" className="motion-safe-anim absolute right-[20px] top-[650px] hidden w-[146px] rotate-[122deg] opacity-[0.12] lg:block" />
 
-      <Reveal y={20} className="relative mx-auto max-w-[1220px]">
-        <div className="rounded-[20px] bg-orange px-6 py-10 text-center lg:h-[124px] lg:py-0 lg:pt-10">
-          <p className="heading-tracking text-xl font-bold leading-[1.36] text-navy sm:text-[28px]">
+      {/* drop-shadow (not box-shadow) so the glow also follows the pointer under the band. */}
+      <Reveal y={20} className="relative mx-auto max-w-[1220px] drop-shadow-[0_18px_30px_rgb(247_132_51/0.35)]">
+        {/* Gradient ends on #f78433 at the bottom so it runs seamlessly into the pointer. */}
+        <div className="relative overflow-hidden rounded-[20px] bg-[radial-gradient(120%_140%_at_0%_0%,rgb(255_255_255/0.28),transparent_55%),radial-gradient(70%_120%_at_100%_100%,rgb(224_95_5/0.3),transparent_55%),linear-gradient(180deg,#ffa86b,#f78433)] px-6 py-10 text-center lg:h-[124px] lg:py-0 lg:pt-10">
+          <span aria-hidden className="absolute -right-12 -top-20 h-48 w-48 rounded-full bg-white/[0.12]" />
+          <span aria-hidden className="absolute -bottom-24 left-[8%] h-40 w-40 rounded-full bg-white/[0.08]" />
+          <p className="heading-tracking relative text-xl font-bold leading-[1.36] text-navy sm:text-[28px]">
             Rumbasha membantu anak Anda unggul, dari SD sampai SMA favorit.
           </p>
         </div>
@@ -59,13 +63,14 @@ export default function Keunggulan() {
             aria-label="Slide sebelumnya"
             className="grid h-12 w-12 place-items-center rounded-full text-orange transition hover:-translate-x-1 hover:bg-orange/10"
           >
-            <ChevronLeftThin className="h-12 w-12" />
+            <ChevronLeft className="h-12 w-12" />
           </button>
 
-          {/* Photo ring */}
+          {/* Photo ring, framed by a white border and a slow-turning dashed orange ring */}
           <div className="relative h-[200px] w-[200px] sm:h-[240px] sm:w-[240px]">
-            <div className="absolute inset-0 rounded-full bg-ring" />
-            <div className="absolute inset-0 overflow-hidden rounded-full">
+            <div aria-hidden className="motion-safe-anim absolute -inset-3 animate-spin-slow rounded-full border-2 border-dashed border-orange/70" />
+            <div className="absolute inset-0 rounded-full bg-ring shadow-photo" />
+            <div className="absolute inset-0 overflow-hidden rounded-full border-[6px] border-white">
               <AnimatePresence initial={false} custom={direction}>
                 <motion.div
                   key={index}
@@ -102,7 +107,7 @@ export default function Keunggulan() {
             aria-label="Slide berikutnya"
             className="grid h-12 w-12 place-items-center rounded-full text-orange transition hover:translate-x-1 hover:bg-orange/10"
           >
-            <ChevronRightThin className="h-12 w-12" />
+            <ChevronRight className="h-12 w-12" />
           </button>
         </div>
 

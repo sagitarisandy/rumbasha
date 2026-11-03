@@ -13,18 +13,18 @@ export function ChevronDown(props: IconProps) {
   );
 }
 
-export function ChevronLeftThin(props: IconProps) {
+export function ChevronLeft(props: IconProps) {
   return (
     <svg viewBox="0 0 48 48" fill="none" aria-hidden {...props}>
-      <path d="M30 10L16 24l14 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M30 10L16 24l14 14" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-export function ChevronRightThin(props: IconProps) {
+export function ChevronRight(props: IconProps) {
   return (
     <svg viewBox="0 0 48 48" fill="none" aria-hidden {...props}>
-      <path d="M18 10l14 14-14 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M18 10l14 14-14 14" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }

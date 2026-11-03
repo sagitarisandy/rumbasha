@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
-import { faqs } from "./data";
+import { faqs, whatsappUrl } from "./data";
 import { PlusIcon, WhatsAppIcon } from "./icons";
 import { Reveal, RevealGroup, RevealItem } from "./motion";
 
@@ -28,7 +28,7 @@ export default function Faq({
             Belum menemukan jawabannya? Tim admin kami siap membantu setiap hari.
           </p>
           <a
-            href="https://wa.me/6281234567890"
+            href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
             className="mt-[42px] inline-flex h-[52px] items-center gap-2 rounded-xl bg-whatsapp px-6 text-base font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#0f8f4d]"

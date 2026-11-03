@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Inter_Tight } from "next/font/google";
+import WhatsAppFloat from "@/components/home-option-2/WhatsAppFloat";
 import "./globals.css";
 
 const inter = Inter({
@@ -22,7 +23,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="id" className={`${inter.variable} ${interTight.variable} antialiased`}>
-      <body className="min-h-full overflow-x-clip">{children}</body>
+      <body className="min-h-full overflow-x-clip">
+        {children}
+        <WhatsAppFloat />
+      </body>
     </html>
   );
 }

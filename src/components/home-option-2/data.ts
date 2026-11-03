@@ -4,6 +4,8 @@ import type { ProgramPalette } from "./icons";
 
 export const programMenu = ["Pra SD", "SD", "SMP", "SMA"];
 
+export const whatsappUrl = "https://wa.me/6281234567890";
+
 export const navItems = [
   { label: "Program", href: "/#program", hasMenu: true },
   { label: "Fasilitas", href: "/#fasilitas" },

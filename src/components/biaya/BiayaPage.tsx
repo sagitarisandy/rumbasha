@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
+import { whatsappUrl } from "../home-option-2/data";
 import Faq from "../home-option-2/Faq";
 import Footer from "../home-option-2/Footer";
 import { Header, PromoBar } from "../home-option-2/Header";
@@ -55,7 +56,7 @@ function PaketCard({ paket, featured }: { paket: Paket; featured?: boolean }) {
         </p>
       )}
       <a
-        href="https://wa.me/6281234567890"
+        href={whatsappUrl}
         target="_blank"
         rel="noreferrer"
         className={`relative mt-5 flex h-12 items-center justify-center rounded-xl text-sm font-semibold transition hover:-translate-y-0.5 ${
