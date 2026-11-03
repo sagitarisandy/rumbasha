@@ -125,7 +125,7 @@ export default function BiayaPage() {
 
   const select = (id: string) => {
     setActive(id);
-    window.history.replaceState(null, "", id === "sd" ? "/biaya" : `/biaya?jenjang=${id}`);
+    window.history.replaceState(null, "", id === "sd" ? "/pricing" : `/pricing?jenjang=${id}`);
   };
 
   return (

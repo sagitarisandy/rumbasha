@@ -9,7 +9,7 @@ export const whatsappUrl = "https://wa.me/6281234567890";
 export const navItems = [
   { label: "Program", href: "/#program", hasMenu: true },
   { label: "Fasilitas", href: "/#fasilitas" },
-  { label: "Biaya", href: "/biaya" },
+  { label: "Biaya", href: "/pricing" },
   { label: "Cabang", href: "/#kontak" },
   { label: "Alumni", href: "/alumni/rizky" },
   { label: "FAQ", href: "/#faq" },

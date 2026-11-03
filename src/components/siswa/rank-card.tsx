@@ -57,7 +57,7 @@ export function RankCard({ boards, meId, title = "Peringkat kamu" }: { boards: R
     <section>
       <div className="mb-3 flex items-end justify-between">
         <h2 className="text-[17px] font-semibold text-ink">{title}</h2>
-        <Link href={`/siswa/peringkat?papan=${tab}`} className="text-[13px] font-semibold text-primary">
+        <Link href={`/student/leaderboard?papan=${tab}`} className="text-[13px] font-semibold text-primary">
           Lihat semua
         </Link>
       </div>

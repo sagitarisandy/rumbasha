@@ -6,11 +6,11 @@ export function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
   const session = decodeSession(request.cookies.get(SESSION_COOKIE)?.value);
 
-  if (pathname === "/masuk") {
+  if (pathname === "/login") {
     return session ? NextResponse.redirect(new URL(homeFor(session.role), request.url)) : NextResponse.next();
   }
   if (!session) {
-    const url = new URL("/masuk", request.url);
+    const url = new URL("/login", request.url);
     url.searchParams.set("next", pathname + search);
     return NextResponse.redirect(url);
   }
@@ -22,5 +22,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/siswa/:path*", "/admin/:path*", "/masuk"],
+  matcher: ["/student/:path*", "/admin/:path*", "/login"],
 };

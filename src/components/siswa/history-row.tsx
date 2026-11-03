@@ -10,7 +10,7 @@ export function scoreTone(score: number) {
 
 export function HistoryRow({ id, title, subject, sub, score }: { id: number; title: string; subject: string; sub: string; score: number | null }) {
   return (
-    <Link href={`/siswa/hasil/${id}`} className="flex items-center gap-3 py-3 transition hover:bg-sidebar">
+    <Link href={`/student/results/${id}`} className="flex items-center gap-3 py-3 transition hover:bg-sidebar">
       <span className="grid size-12 shrink-0 place-items-end overflow-hidden rounded-xl" style={{ background: mapelStyle(subject).color }}>
         <Kostum mapel={subject} className="h-11" />
       </span>

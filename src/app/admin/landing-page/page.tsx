@@ -30,12 +30,12 @@ export default async function AdminLandingPage() {
         value="beranda"
         items={[
           { value: "beranda", label: "Beranda", href: "/admin/landing-page" },
-          { value: "biaya", label: "Paket & Biaya", href: "/biaya" },
+          { value: "biaya", label: "Paket & Biaya", href: "/pricing" },
           { value: "prestasi", label: "Siswa Berprestasi", href: "/alumni/rizky" },
-          { value: "trial", label: "Quiz Trial", href: "/quiz-trial" },
+          { value: "trial", label: "Quiz Trial", href: "/trial" },
         ]}
       />
-      <LandingEditor initial={data} hero={hero ?? { title: "", subtitle: "", cta: "", ctaHref: "/quiz-trial" }} />
+      <LandingEditor initial={data} hero={hero ?? { title: "", subtitle: "", cta: "", ctaHref: "/trial" }} />
     </>
   );
 }

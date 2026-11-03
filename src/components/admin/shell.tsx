@@ -28,16 +28,16 @@ export function AdminFrame({ user, children }: { user: CurrentUser; children: Re
           <div className="hidden lg:block">
             <AdminTitle />
           </div>
-          <form action="/admin/cari" className="relative ml-auto hidden w-full max-w-[380px] md:block lg:ml-10">
+          <form action="/admin/search" className="relative ml-auto hidden w-full max-w-[380px] md:block lg:ml-10">
             <Search className="absolute left-4 top-1/2 size-[18px] -translate-y-1/2 text-subtle" />
             <input name="q" placeholder="Cari user, soal, materi, atau quiz…" className="h-11 w-full rounded-[22px] bg-surface pl-11 pr-4 text-sm text-ink outline-none placeholder:text-subtle focus:ring-2 focus:ring-primary/25" />
           </form>
           <div className="ml-auto flex items-center gap-4">
-            <Link href="/admin/task" aria-label="Task" className="relative grid size-10 place-items-center rounded-full text-accent hover:bg-surface">
+            <Link href="/admin/tasks" aria-label="Task" className="relative grid size-10 place-items-center rounded-full text-accent hover:bg-surface">
               <Bell className="size-5" />
               <span className="absolute right-2.5 top-2 size-2 rounded-full bg-accent ring-2 ring-white" />
             </Link>
-            <UserMenu name={user.name} sub={user.email} avatar={user.avatar} links={[{ href: "/admin/task", label: "Task saya" }, { href: "/admin/landing-page", label: "Landing page" }]} />
+            <UserMenu name={user.name} sub={user.email} avatar={user.avatar} links={[{ href: "/admin/tasks", label: "Task saya" }, { href: "/admin/landing-page", label: "Landing page" }]} />
           </div>
         </div>
         <AdminMobileNav />

@@ -11,9 +11,9 @@ const socials = [
 ];
 
 const footerHref: Record<string, string> = {
-  "Kelas Reguler": "/biaya",
-  "Persiapan TKA SMP": "/biaya?jenjang=smp",
-  "Kelas Privat": "/biaya",
+  "Kelas Reguler": "/pricing",
+  "Persiapan TKA SMP": "/pricing?jenjang=smp",
+  "Kelas Privat": "/pricing",
   Fasilitas: "/#fasilitas",
   "Kisah Alumni": "/alumni/rizky",
   FAQ: "/#faq",

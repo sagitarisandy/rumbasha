@@ -50,8 +50,8 @@ Semua siswa demo lain memakai `siswa123`; tutor/admin lain `admin123`.
 
 ## Halaman
 
-- Publik: `/mulai` (welcome), `/masuk`, `/quiz-trial` (10 soal tanpa daftar).
-- Siswa (`/siswa`): Beranda, Modul + PDF preview (progres baca tersimpan, unduh PDF), Daily Quiz (2 gratis/hari, lalu 10 coin), Uji Kom & Tryout (kode akses 6 karakter → hitung mundur 15 detik), halaman soal fokus (timer, ragu-ragu, daftar soal), Hasil & Pembahasan, RUMATH (video + latihan isian dengan keypad), Peringkat, Notifikasi, Cari, Profil (data diri, kata sandi, riwayat + export PDF), Paket & Coin (checkout disimulasikan).
+- Publik: `/welcome` (welcome), `/login`, `/trial` (10 soal tanpa daftar).
+- Siswa (`/student`): Beranda, Modul + PDF preview (progres baca tersimpan, unduh PDF), Daily Quiz (2 gratis/hari, lalu 10 coin), Uji Kom & Tryout (kode akses 6 karakter → hitung mundur 15 detik), halaman soal fokus (timer, ragu-ragu, daftar soal), Hasil & Pembahasan, RUMATH (video + latihan isian dengan keypad), Peringkat, Notifikasi, Cari, Profil (data diri, kata sandi, riwayat + export PDF), Paket & Coin (checkout disimulasikan).
 - Admin (`/admin`): Beranda (KPI, grafik), Materi, Bank Soal (+ import CSV), Image (upload), Master Data, Quiz (builder 3 langkah + kode akses), RUMATH, Leaderboard, Report Quiz, Report RUMATH, User (+ import CSV), Coin & Akses (ubah massal), Paket, Landing Page, Task.
 
 ## Backend

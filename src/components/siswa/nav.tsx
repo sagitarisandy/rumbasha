@@ -7,15 +7,15 @@ import { usePathname } from "next/navigation";
 type NavItem = { href: string; label: string; icon: LucideIcon; badge?: number };
 
 const MAIN: NavItem[] = [
-  { href: "/siswa", label: "Beranda", icon: House },
-  { href: "/siswa/modul", label: "Modul", icon: BookOpen },
-  { href: "/siswa/quiz", label: "Daily Quiz", icon: Zap },
-  { href: "/siswa/ujikom", label: "Uji Kom & Tryout", icon: ClipboardCheck },
-  { href: "/siswa/rumath", label: "RUMATH", icon: Calculator },
-  { href: "/siswa/peringkat", label: "Peringkat", icon: Trophy },
+  { href: "/student", label: "Beranda", icon: House },
+  { href: "/student/modules", label: "Modul", icon: BookOpen },
+  { href: "/student/daily-quiz", label: "Daily Quiz", icon: Zap },
+  { href: "/student/exams", label: "Uji Kom & Tryout", icon: ClipboardCheck },
+  { href: "/student/rumath", label: "RUMATH", icon: Calculator },
+  { href: "/student/leaderboard", label: "Peringkat", icon: Trophy },
 ];
 
-const isActive = (pathname: string, href: string) => (href === "/siswa" ? pathname === "/siswa" : pathname.startsWith(href));
+const isActive = (pathname: string, href: string) => (href === "/student" ? pathname === "/student" : pathname.startsWith(href));
 
 function SideLink({ item, active }: { item: NavItem; active: boolean }) {
   const Icon = item.icon;
@@ -36,9 +36,9 @@ function SideLink({ item, active }: { item: NavItem; active: boolean }) {
 export function SiswaSideNav({ unread }: { unread: number }) {
   const pathname = usePathname();
   const extra: NavItem[] = [
-    { href: "/siswa/paket", label: "Paket & Coin", icon: Wallet },
-    { href: "/siswa/notifikasi", label: "Notifikasi", icon: Bell, badge: unread },
-    { href: "/siswa/profil", label: "Profil", icon: CircleUser },
+    { href: "/student/plans", label: "Paket & Coin", icon: Wallet },
+    { href: "/student/notifications", label: "Notifikasi", icon: Bell, badge: unread },
+    { href: "/student/profile", label: "Profil", icon: CircleUser },
   ];
   return (
     <nav className="flex flex-col gap-1" aria-label="Menu siswa">
@@ -54,21 +54,21 @@ export function SiswaSideNav({ unread }: { unread: number }) {
 }
 
 const TABS: NavItem[] = [
-  { href: "/siswa", label: "Beranda", icon: House },
-  { href: "/siswa/modul", label: "Belajar", icon: BookOpen },
-  { href: "/siswa/quiz", label: "Quiz", icon: Zap },
-  { href: "/siswa/peringkat", label: "Peringkat", icon: Trophy },
-  { href: "/siswa/profil", label: "Profil", icon: CircleUser },
+  { href: "/student", label: "Beranda", icon: House },
+  { href: "/student/modules", label: "Belajar", icon: BookOpen },
+  { href: "/student/daily-quiz", label: "Quiz", icon: Zap },
+  { href: "/student/leaderboard", label: "Peringkat", icon: Trophy },
+  { href: "/student/profile", label: "Profil", icon: CircleUser },
 ];
 
 export function SiswaTabBar() {
   const pathname = usePathname();
-  const quizPaths = ["/siswa/quiz", "/siswa/ujikom", "/siswa/rumath"];
+  const quizPaths = ["/student/daily-quiz", "/student/exams", "/student/rumath"];
   return (
     <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-white/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden" aria-label="Navigasi bawah">
       <div className="mx-auto grid max-w-[520px] grid-cols-5">
         {TABS.map(({ href, label, icon: Icon }) => {
-          const on = href === "/siswa/quiz" ? quizPaths.some((p) => pathname.startsWith(p)) : isActive(pathname, href);
+          const on = href === "/student/daily-quiz" ? quizPaths.some((p) => pathname.startsWith(p)) : isActive(pathname, href);
           return (
             <Link key={href} href={href} className={`flex flex-col items-center gap-1 py-2 text-[11px] ${on ? "font-semibold text-primary" : "text-faint"}`}>
               <span className={`grid h-7 w-12 place-items-center rounded-full transition ${on ? "bg-primary-soft" : ""}`}>

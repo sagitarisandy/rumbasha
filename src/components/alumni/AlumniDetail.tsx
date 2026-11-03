@@ -238,7 +238,7 @@ export default function AlumniDetail() {
                   ))}
                 </ul>
                 <Link
-                  href="/biaya?jenjang=smp"
+                  href="/pricing?jenjang=smp"
                   className="relative mt-8 flex h-12 items-center justify-center rounded-xl bg-orange text-sm font-semibold shadow-cta transition hover:-translate-y-0.5 hover:bg-[#ff9248]"
                 >
                   Lihat paket ini

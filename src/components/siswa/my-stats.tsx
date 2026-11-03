@@ -19,7 +19,7 @@ export async function MyStatsAside({ user }: { user: CurrentUser }) {
       <section>
         <div className="mb-3 flex items-end justify-between">
           <h2 className="text-[17px] font-semibold text-ink">Statistik kamu</h2>
-          <Link href="/siswa/profil/riwayat" className="text-[13px] font-semibold text-primary">
+          <Link href="/student/profile/history" className="text-[13px] font-semibold text-primary">
             Detail
           </Link>
         </div>
@@ -39,7 +39,7 @@ export async function MyStatsAside({ user }: { user: CurrentUser }) {
             value={num(user.coin)}
             label="Coin"
             right={
-              <Link href="/siswa/paket?tab=coin" className="rounded-2xl bg-white px-3 py-1.5 text-[13px] font-semibold text-ink shadow-tab">
+              <Link href="/student/plans?tab=coin" className="rounded-2xl bg-white px-3 py-1.5 text-[13px] font-semibold text-ink shadow-tab">
                 Isi
               </Link>
             }

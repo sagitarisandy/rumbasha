@@ -31,4 +31,4 @@ export function decodeSession(token: string | undefined): Session | null {
   }
 }
 
-export const homeFor = (role: Role) => (role === "siswa" ? "/siswa" : "/admin");
+export const homeFor = (role: Role) => (role === "siswa" ? "/student" : "/admin");

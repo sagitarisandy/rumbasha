@@ -104,7 +104,7 @@ export async function saveUser(id: number | null, _prev: FormState, f: FormData)
   }
   await log(user, `${id ? "mengubah" : "menambah"} akun ${values.name}`);
   refresh();
-  if (!id) redirect("/admin/user");
+  if (!id) redirect("/admin/users");
   return { ok: true, message: "Tersimpan." };
 }
 
@@ -186,7 +186,7 @@ export async function savePaket(id: number | null, _prev: FormState, f: FormData
   else await db.insert(t.packages).values(values);
   await log(user, `${id ? "mengubah" : "menambah"} paket ${values.name}`);
   refresh();
-  if (!id) redirect("/admin/paket");
+  if (!id) redirect("/admin/plans");
   return { ok: true, message: "Tersimpan." };
 }
 
@@ -248,10 +248,10 @@ export async function saveMateri(id: number | null, _prev: FormState, f: FormDat
   else await db.insert(t.materials).values(values);
   await log(user, `${values.status === "publish" ? "publish" : "menyimpan draf"} materi ${values.title}`);
   if (!id && values.status === "publish") {
-    await db.insert(t.notifications).values({ kind: "materi", title: `Materi baru: ${values.title}`, body: `${values.subject} · ${values.bab}. Yuk dibaca!`, href: "/siswa/modul" });
+    await db.insert(t.notifications).values({ kind: "materi", title: `Materi baru: ${values.title}`, body: `${values.subject} · ${values.bab}. Yuk dibaca!`, href: "/student/modules" });
   }
   refresh();
-  redirect("/admin/materi");
+  redirect("/admin/materials");
 }
 
 // ---- soal -------------------------------------------------------------------------------------
@@ -284,7 +284,7 @@ export async function saveSoal(id: number | null, _prev: FormState, f: FormData)
   await log(user, `${id ? "mengubah" : "menambah"} soal ${values.bab}`);
   refresh();
   if (f.get("intent") === "lagi") return { ok: true, message: "Soal tersimpan. Lanjut tulis soal berikutnya." };
-  redirect("/admin/bank-soal");
+  redirect("/admin/questions");
 }
 
 /** CSV: pertanyaan;A;B;C;D;E;kunci(A-E);mapel;bab;level */
@@ -341,7 +341,7 @@ export async function saveQuiz(id: number | null, payload: { title: string; kind
   else await db.insert(t.quizzes).values({ ...values, createdBy: user.name });
   await log(user, `${payload.publish ? "menjadwalkan" : "menyimpan draf"} quiz ${payload.title}`);
   if (payload.publish && needsCode && !id) {
-    await db.insert(t.notifications).values({ kind: "quiz", title: `${payload.kind === "tryout" ? "Tryout" : "Uji Kom"} baru: ${payload.title}`, body: values.startsAt ? `Dibuka ${values.startsAt.toLocaleString("id-ID", { dateStyle: "medium", timeStyle: "short", timeZone: TZ })}. Minta kode akses ke tutor.` : "Minta kode akses ke tutor.", href: "/siswa/ujikom" });
+    await db.insert(t.notifications).values({ kind: "quiz", title: `${payload.kind === "tryout" ? "Tryout" : "Uji Kom"} baru: ${payload.title}`, body: values.startsAt ? `Dibuka ${values.startsAt.toLocaleString("id-ID", { dateStyle: "medium", timeStyle: "short", timeZone: TZ })}. Minta kode akses ke tutor.` : "Minta kode akses ke tutor.", href: "/student/exams" });
   }
   refresh();
   return { ok: true };
@@ -427,7 +427,7 @@ export async function updateLanding(sections: LandingSection[], change: string):
 
 export async function saveHero(_prev: FormState, f: FormData): Promise<FormState> {
   const user = await staff();
-  await putSetting("hero", { title: str(f, "title"), subtitle: str(f, "subtitle"), cta: str(f, "cta"), ctaHref: str(f, "ctaHref") || "/quiz-trial", published: false });
+  await putSetting("hero", { title: str(f, "title"), subtitle: str(f, "subtitle"), cta: str(f, "cta"), ctaHref: str(f, "ctaHref") || "/trial", published: false });
   const db = await getDb();
   const [row] = await db.select().from(t.settings).where(eq(t.settings.key, "landing"));
   const cur = row?.value as Landing;
@@ -469,5 +469,5 @@ export async function resetDemo(): Promise<FormState> {
   if (!user) return { error: "Hanya Super Admin." };
   const { resetDatabase } = await import("@/lib/db");
   await resetDatabase();
-  redirect("/masuk");
+  redirect("/login");
 }

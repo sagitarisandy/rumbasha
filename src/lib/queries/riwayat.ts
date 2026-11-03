@@ -38,7 +38,7 @@ export async function riwayat(userId: number, from: Date, to: Date): Promise<Riw
       sub: q.kind === "rumath" ? `${q.correct}/${q.total} benar` : q.kind === "tryout" ? `skor ${(q.score ?? 0) * 10}` : `nilai ${q.score}`,
       points: pointsFor(q.kind, q.score ?? 0, q.correct ?? 0),
       at: q.at!,
-      href: `/siswa/hasil/${q.id}`,
+      href: `/student/results/${q.id}`,
       score: q.score,
     })),
     ...reads.map((r) => ({
@@ -48,7 +48,7 @@ export async function riwayat(userId: number, from: Date, to: Date): Promise<Riw
       sub: r.page >= r.pages ? "PDF selesai dibaca" : `dibaca sampai hal. ${r.page}/${r.pages}`,
       points: 0,
       at: r.at,
-      href: `/siswa/modul/${r.id}`,
+      href: `/student/modules/${r.id}`,
       score: null,
     })),
   ];

@@ -13,7 +13,7 @@ export function SiswaFrame({ user, unread, packageName, children }: { user: Curr
     <div className="min-h-dvh bg-white lg:pl-[248px]">
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-[248px] flex-col border-r border-border bg-white px-4 pb-4 pt-6 lg:flex">
         <div className="mb-8 px-3">
-          <Logo href="/siswa" className="w-[104px]" />
+          <Logo href="/student" className="w-[104px]" />
         </div>
         <div className="min-h-0 flex-1 overflow-y-auto">
           <SiswaSideNav unread={unread} />
@@ -21,7 +21,7 @@ export function SiswaFrame({ user, unread, packageName, children }: { user: Curr
         <div className="relative mt-4 overflow-hidden rounded-[20px] bg-primary-soft p-4">
           <p className="max-w-[130px] text-[15px] font-semibold leading-tight text-ink">Belajar 15 menit hari ini</p>
           <p className="mt-2 max-w-[130px] text-xs text-subtle">Streak kamu {user.streak} hari. Lanjut!</p>
-          <LinkButton href="/siswa/modul?lanjut=1" size="sm" className="mt-3">
+          <LinkButton href="/student/modules?lanjut=1" size="sm" className="mt-3">
             Mulai
           </LinkButton>
           <Rumbi pose="baca" className="absolute -bottom-1 -right-2 h-[88px]" />
@@ -29,16 +29,16 @@ export function SiswaFrame({ user, unread, packageName, children }: { user: Curr
       </aside>
 
       <header className="sticky top-0 z-20 hidden h-[88px] items-center gap-6 border-b border-border bg-white/90 px-8 backdrop-blur lg:flex">
-        <form action="/siswa/cari" className="relative w-full max-w-[480px]">
+        <form action="/student/search" className="relative w-full max-w-[480px]">
           <Search className="absolute left-4 top-1/2 size-[18px] -translate-y-1/2 text-subtle" />
           <input name="q" placeholder="Cari materi, PDF, atau quiz…" className="h-11 w-full rounded-[22px] bg-surface pl-11 pr-4 text-sm text-ink outline-none placeholder:text-subtle focus:ring-2 focus:ring-primary/25" />
         </form>
         <div className="ml-auto flex items-center gap-5">
-          <Link href="/siswa/notifikasi" aria-label={`Notifikasi, ${unread} belum dibaca`} className="relative grid size-10 place-items-center rounded-full text-primary hover:bg-surface">
+          <Link href="/student/notifications" aria-label={`Notifikasi, ${unread} belum dibaca`} className="relative grid size-10 place-items-center rounded-full text-primary hover:bg-surface">
             <Bell className="size-5" />
             {unread > 0 && <span className="absolute right-2 top-2 size-2 rounded-full bg-accent ring-2 ring-white" />}
           </Link>
-          <UserMenu name={user.name} sub={sub} avatar={user.avatar} links={[{ href: "/siswa/profil", label: "Profil" }, { href: "/siswa/paket", label: "Paket & Coin" }]} />
+          <UserMenu name={user.name} sub={sub} avatar={user.avatar} links={[{ href: "/student/profile", label: "Profil" }, { href: "/student/plans", label: "Paket & Coin" }]} />
         </div>
       </header>
 
@@ -62,7 +62,7 @@ export function SiswaPage({ children, aside, header }: { children: ReactNode; as
 }
 
 /** Mobile top bar: back + title + optional right slot. Hidden on desktop. */
-export function MobileBar({ title, back = "/siswa", right }: { title: ReactNode; back?: string | null; right?: ReactNode }) {
+export function MobileBar({ title, back = "/student", right }: { title: ReactNode; back?: string | null; right?: ReactNode }) {
   return (
     <div className="sticky top-0 z-20 flex h-14 items-center gap-2 bg-white/95 px-3 backdrop-blur lg:hidden">
       {back && (
@@ -79,13 +79,13 @@ export function MobileBar({ title, back = "/siswa", right }: { title: ReactNode;
 export function MobileHome({ user, unread }: { user: CurrentUser; unread: number }) {
   return (
     <div className="flex h-16 items-center justify-between px-4 lg:hidden">
-      <Logo href="/siswa" className="w-[92px]" />
+      <Logo href="/student" className="w-[92px]" />
       <div className="flex items-center gap-2">
-        <Link href="/siswa/notifikasi" aria-label="Notifikasi" className="relative grid size-10 place-items-center rounded-full text-accent">
+        <Link href="/student/notifications" aria-label="Notifikasi" className="relative grid size-10 place-items-center rounded-full text-accent">
           <Bell className="size-5" />
           {unread > 0 && <span className="absolute right-2.5 top-2 size-2 rounded-full bg-accent" />}
         </Link>
-        <Link href="/siswa/profil" aria-label="Profil">
+        <Link href="/student/profile" aria-label="Profil">
           <Avatar n={user.avatar} className="size-10 ring-4 ring-accent-soft" />
         </Link>
       </div>

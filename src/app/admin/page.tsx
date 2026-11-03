@@ -13,7 +13,7 @@ import { getDb } from "@/lib/db";
 import { activity, tasks } from "@/lib/db/schema";
 import { ago, due, firstName, greeting, num } from "@/lib/format";
 import { activeSessions, counts, scoreTrend } from "@/lib/queries/admin";
-import { TaskCheck } from "./task/task-check";
+import { TaskCheck } from "./tasks/task-check";
 
 function Kpi({ icon, label, value, delta, foot, sub, tone }: { icon: ReactNode; label: string; value: string; delta: number; foot: string; sub: string; tone: string }) {
   return (
@@ -65,10 +65,10 @@ export default async function AdminHome({ searchParams }: { searchParams: Promis
         sub={`${openTasks.length} task aktif dari Super Admin · ${live} sesi Uji Kom berlangsung hari ini.`}
         actions={
           <>
-            <LinkButton href="/admin/quiz?tipe=ujikom" variant="ghost">
+            <LinkButton href="/admin/quizzes?tipe=ujikom" variant="ghost">
               <KeyRound /> Buat kode akses
             </LinkButton>
-            <LinkButton href="/admin/bank-soal/tambah">
+            <LinkButton href="/admin/questions/new">
               <Plus /> Tambah soal
             </LinkButton>
           </>
@@ -99,7 +99,7 @@ export default async function AdminHome({ searchParams }: { searchParams: Promis
               <p className="text-[17px] font-semibold text-ink">Task kamu</p>
               <p className="text-[13px] text-subtle">Dari Super Admin</p>
             </div>
-            <Link href="/admin/task" className="text-[13px] font-semibold text-ink hover:text-primary">
+            <Link href="/admin/tasks" className="text-[13px] font-semibold text-ink hover:text-primary">
               Semua task
             </Link>
           </div>

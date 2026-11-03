@@ -297,12 +297,12 @@ export async function seed(db: DB) {
 
   // ---- notifications -----------------------------------------------------------------------
   await db.insert(t.notifications).values([
-    { kind: "quiz", title: "Uji Kom Matematika sudah dibuka", body: "Uji Kompetensi Matematika — Pecahan sedang berlangsung. Siapkan kode akses dari tutor.", href: "/siswa/ujikom", createdAt: new Date(Date.now() - 35 * 60_000) },
-    { userId: nadia.id, kind: "peringkat", title: "Kamu naik 3 peringkat!", body: "Sekarang kamu peringkat #12 Daily Quiz. Pertahankan streak 6 harimu.", href: "/siswa/peringkat", createdAt: new Date(Date.now() - 3 * 3_600_000) },
-    { kind: "materi", title: "Materi baru: Rumus ABC", body: "Bab Persamaan Kuadrat punya PDF baru dari Kak Dewi.", href: "/siswa/modul?mapel=Matematika", createdAt: at(-1, 10) },
-    { kind: "promo", title: "Promo November", body: "Diskon 30% Paket Intensif Masuk SMA sampai 30 November.", href: "/siswa/paket", createdAt: at(-2, 8) },
-    { kind: "quiz", title: "Tryout Bersama 20 Desember", body: "Tryout Bersama Rumbasha dibuka Sabtu, 20 Des pukul 08.00. 40 soal, 120 menit.", href: "/siswa/ujikom", createdAt: at(-4, 9) },
-    { kind: "sistem", title: "Jatah Daily Quiz terisi lagi", body: "Kamu dapat 2 Daily Quiz gratis setiap hari. Setelah itu 10 coin per quiz.", href: "/siswa/quiz", createdAt: at(-6, 6) },
+    { kind: "quiz", title: "Uji Kom Matematika sudah dibuka", body: "Uji Kompetensi Matematika — Pecahan sedang berlangsung. Siapkan kode akses dari tutor.", href: "/student/exams", createdAt: new Date(Date.now() - 35 * 60_000) },
+    { userId: nadia.id, kind: "peringkat", title: "Kamu naik 3 peringkat!", body: "Sekarang kamu peringkat #12 Daily Quiz. Pertahankan streak 6 harimu.", href: "/student/leaderboard", createdAt: new Date(Date.now() - 3 * 3_600_000) },
+    { kind: "materi", title: "Materi baru: Rumus ABC", body: "Bab Persamaan Kuadrat punya PDF baru dari Kak Dewi.", href: "/student/modules?mapel=Matematika", createdAt: at(-1, 10) },
+    { kind: "promo", title: "Promo November", body: "Diskon 30% Paket Intensif Masuk SMA sampai 30 November.", href: "/student/plans", createdAt: at(-2, 8) },
+    { kind: "quiz", title: "Tryout Bersama 20 Desember", body: "Tryout Bersama Rumbasha dibuka Sabtu, 20 Des pukul 08.00. 40 soal, 120 menit.", href: "/student/exams", createdAt: at(-4, 9) },
+    { kind: "sistem", title: "Jatah Daily Quiz terisi lagi", body: "Kamu dapat 2 Daily Quiz gratis setiap hari. Setelah itu 10 coin per quiz.", href: "/student/daily-quiz", createdAt: at(-6, 6) },
   ]);
 
   // ---- images ------------------------------------------------------------------------------
@@ -344,9 +344,9 @@ export async function seed(db: DB) {
     { actor: "Rina Sari", avatar: 9, text: "publish 2 materi baru", createdAt: at(-1, 15) },
   ]);
   await db.insert(t.settings).values([
-    { key: "hero", value: { title: "Bangun dasar yang kuat sejak SD", subtitle: "Siapkan TKA dan seleksi masuk SMA bersama Rumbasha.", cta: "Coba Quiz Trial", ctaHref: "/quiz-trial", published: true } },
-    { key: "promo", value: { label: "Promo November", title: "Diskon 30% Paket Intensif Masuk SMA", cta: "Lihat promo", href: "/siswa/paket", active: true } },
-    { key: "announcement", value: { text: "Tryout Bersama · Sabtu, 20 Des pukul 08.00", href: "/siswa/ujikom" } },
+    { key: "hero", value: { title: "Bangun dasar yang kuat sejak SD", subtitle: "Siapkan TKA dan seleksi masuk SMA bersama Rumbasha.", cta: "Coba Quiz Trial", ctaHref: "/trial", published: true } },
+    { key: "promo", value: { label: "Promo November", title: "Diskon 30% Paket Intensif Masuk SMA", cta: "Lihat promo", href: "/student/plans", active: true } },
+    { key: "announcement", value: { text: "Tryout Bersama · Sabtu, 20 Des pukul 08.00", href: "/student/exams" } },
     {
       key: "leaderboard",
       value: {

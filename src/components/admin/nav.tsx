@@ -12,16 +12,16 @@ export const ADMIN_NAV: { title?: string; items: Item[] }[] = [
   {
     title: "Konten",
     items: [
-      { href: "/admin/materi", label: "Materi", icon: FileText },
-      { href: "/admin/bank-soal", label: "Bank Soal", icon: LibraryBig },
-      { href: "/admin/image", label: "Image", icon: ImageIcon },
+      { href: "/admin/materials", label: "Materi", icon: FileText },
+      { href: "/admin/questions", label: "Bank Soal", icon: LibraryBig },
+      { href: "/admin/images", label: "Image", icon: ImageIcon },
       { href: "/admin/master-data", label: "Master Data", icon: Database },
     ],
   },
   {
     title: "Quiz & Nilai",
     items: [
-      { href: "/admin/quiz", label: "Quiz", icon: ClipboardCheck },
+      { href: "/admin/quizzes", label: "Quiz", icon: ClipboardCheck },
       { href: "/admin/rumath", label: "RUMATH", icon: Calculator },
       { href: "/admin/leaderboard", label: "Leaderboard", icon: Trophy },
       { href: "/admin/report-quiz", label: "Report Quiz", icon: LineChart },
@@ -31,16 +31,16 @@ export const ADMIN_NAV: { title?: string; items: Item[] }[] = [
   {
     title: "Pengguna",
     items: [
-      { href: "/admin/user", label: "User", icon: Users },
-      { href: "/admin/coin-akses", label: "Coin & Akses", icon: Coins },
-      { href: "/admin/paket", label: "Paket", icon: Package },
+      { href: "/admin/users", label: "User", icon: Users },
+      { href: "/admin/coins", label: "Coin & Akses", icon: Coins },
+      { href: "/admin/plans", label: "Paket", icon: Package },
     ],
   },
   {
     title: "Sistem",
     items: [
       { href: "/admin/landing-page", label: "Landing Page", icon: Globe },
-      { href: "/admin/task", label: "Task", icon: ListChecks, badge: "Super" },
+      { href: "/admin/tasks", label: "Task", icon: ListChecks, badge: "Super" },
     ],
   },
 ];

@@ -41,10 +41,10 @@ export default async function AdminRumathPage({ searchParams }: { searchParams: 
         sub="Video materi dan soal isian hitung cepat."
         actions={
           <>
-            <LinkButton href="/admin/bank-soal/tambah?tipe=isian" variant="ghost">
+            <LinkButton href="/admin/questions/new?tipe=isian" variant="ghost">
               <Plus /> Tambah soal
             </LinkButton>
-            <LinkButton href="/admin/rumath/video/tambah">
+            <LinkButton href="/admin/rumath/video/new">
               <Plus /> Tambah video
             </LinkButton>
           </>
@@ -132,7 +132,7 @@ export default async function AdminRumathPage({ searchParams }: { searchParams: 
                   <StatusDot tone={q.level === "Mudah" ? "green" : q.level === "Sedang" ? "orange" : "red"}>{q.level}</StatusDot>
                 </Td>
                 <Td>
-                  <RowActions what={`soal R-${1000 + q.id}`} editHref={`/admin/bank-soal/${q.id}`} onDelete={deleteEntity.bind(null, "soal", q.id)} />
+                  <RowActions what={`soal R-${1000 + q.id}`} editHref={`/admin/questions/${q.id}`} onDelete={deleteEntity.bind(null, "soal", q.id)} />
                 </Td>
               </tr>
             ))}

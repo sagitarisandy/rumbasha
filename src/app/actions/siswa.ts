@@ -99,7 +99,7 @@ export async function purchase(input: { type: "coin"; packageId: number; method:
     await db.insert(payments).values({ userId: user.id, item: `Top-up ${pack.coin} coin`, amount: pack.price, method });
     await db.update(users).set({ coin: sql`${users.coin} + ${pack.coin}` }).where(eq(users.id, user.id));
     await db.insert(coinTx).values({ userId: user.id, amount: pack.coin, note: `Top-up ${pack.coin} coin`, by: method });
-    await db.insert(notifications).values({ userId: user.id, kind: "sistem", title: `${pack.coin} coin masuk`, body: `Pembayaran ${method} berhasil. Coin kamu sudah bertambah.`, href: "/siswa/paket?tab=coin" });
+    await db.insert(notifications).values({ userId: user.id, kind: "sistem", title: `${pack.coin} coin masuk`, body: `Pembayaran ${method} berhasil. Coin kamu sudah bertambah.`, href: "/student/plans?tab=coin" });
     refresh();
     return { ok: true, message: `${pack.coin} coin sudah masuk ke akunmu.` };
   }
@@ -112,7 +112,7 @@ export async function purchase(input: { type: "coin"; packageId: number; method:
   await db.insert(payments).values({ userId: user.id, item: `${pkg.name} · ${period.label.replace(/ −.*/, "")}`, amount, method });
   await db.update(users).set({ packageId: pkg.id, packageUntil: until, coin: sql`${users.coin} + ${pkg.coin}` }).where(eq(users.id, user.id));
   if (pkg.coin) await db.insert(coinTx).values({ userId: user.id, amount: pkg.coin, note: `Coin bulanan ${pkg.name}`, by: "sistem" });
-  await db.insert(notifications).values({ userId: user.id, kind: "sistem", title: `Paket ${pkg.name} aktif`, body: `Aktif sampai ${fullDate(until)}.`, href: "/siswa/paket" });
+  await db.insert(notifications).values({ userId: user.id, kind: "sistem", title: `Paket ${pkg.name} aktif`, body: `Aktif sampai ${fullDate(until)}.`, href: "/student/plans" });
   refresh();
   return { ok: true, message: `Paket ${pkg.name} aktif sampai ${fullDate(until)}.` };
 }

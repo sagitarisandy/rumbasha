@@ -21,13 +21,13 @@ export type CurrentUser = NonNullable<Awaited<ReturnType<typeof getCurrentUser>>
 
 export async function requireSiswa() {
   const user = await getCurrentUser();
-  if (!user || user.role !== "siswa") redirect("/masuk");
+  if (!user || user.role !== "siswa") redirect("/login");
   return user;
 }
 
 export async function requireStaff() {
   const user = await getCurrentUser();
-  if (!user || user.role === "siswa") redirect("/masuk");
+  if (!user || user.role === "siswa") redirect("/login");
   return user;
 }
 

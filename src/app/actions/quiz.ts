@@ -59,7 +59,7 @@ export async function startDaily(_prev: ActionResult, form: FormData): Promise<A
     await db.insert(coinTx).values({ userId: user.id, amount: -DAILY_COIN_COST, note: "Daily Quiz tambahan", by: "sistem" });
   }
   const [att] = await db.insert(attempts).values({ userId: user.id, quizId: quiz.id, total: picked.length }).returning();
-  redirect(`/siswa/sesi/${att.id}`);
+  redirect(`/student/session/${att.id}`);
 }
 
 function windowError(q: typeof quizzes.$inferSelect, now = new Date()) {
@@ -89,14 +89,14 @@ export async function startQuiz(quizId: number, code?: string): Promise<ActionRe
   if (!q) return { error: "Quiz tidak ditemukan." };
 
   const [open] = await db.select().from(attempts).where(and(eq(attempts.userId, user.id), eq(attempts.quizId, q.id), isNull(attempts.submittedAt)));
-  if (open) redirect(`/siswa/sesi/${open.id}`);
+  if (open) redirect(`/student/session/${open.id}`);
 
   if (q.kind === "ujikom" || q.kind === "tryout") {
     const w = windowError(q);
     if (w) return { error: w };
     if ((q.accessCode ?? "").toUpperCase() !== (code ?? "").trim().toUpperCase()) return { error: "Kode salah." };
     const [done] = await db.select({ id: attempts.id }).from(attempts).where(and(eq(attempts.userId, user.id), eq(attempts.quizId, q.id)));
-    if (done) redirect(`/siswa/hasil/${done.id}`);
+    if (done) redirect(`/student/results/${done.id}`);
   }
   if (q.kind === "rumath" && q.coinCost > 0) {
     const pkg = user.packageId ? (await db.select().from(packages).where(eq(packages.id, user.packageId)))[0] : null;
@@ -108,7 +108,7 @@ export async function startQuiz(quizId: number, code?: string): Promise<ActionRe
     }
   }
   const [att] = await db.insert(attempts).values({ userId: user.id, quizId: q.id, total: q.questionIds.length }).returning();
-  redirect(`/siswa/sesi/${att.id}`);
+  redirect(`/student/session/${att.id}`);
 }
 
 async function ownOpenAttempt(attemptId: number) {
@@ -138,7 +138,7 @@ export async function toggleFlag(attemptId: number, questionId: number) {
 /** Grades and closes the attempt, adds poin, then shows the result page. */
 export async function submitAttempt(attemptId: number, finalAnswers?: Record<string, string>) {
   const ctx = await ownOpenAttempt(attemptId);
-  if (!ctx) redirect(`/siswa/hasil/${attemptId}`);
+  if (!ctx) redirect(`/student/results/${attemptId}`);
   const { db, a, user } = ctx;
   const answers = finalAnswers ? { ...a.answers, ...finalAnswers } : a.answers;
   const [quiz] = await db.select().from(quizzes).where(eq(quizzes.id, a.quizId));
@@ -151,9 +151,9 @@ export async function submitAttempt(attemptId: number, finalAnswers?: Record<str
   await db.update(attempts).set({ answers, correct, score, total, submittedAt: new Date() }).where(eq(attempts.id, a.id));
   if (points > 0) await db.update(users).set({ points: sql`${users.points} + ${points}` }).where(eq(users.id, user.id));
   if (quiz.kind === "ujikom" || quiz.kind === "tryout") {
-    await db.insert(notifications).values({ userId: user.id, kind: "quiz", title: `Hasil ${quiz.title} sudah keluar`, body: `Nilai kamu ${score}. Lihat pembahasan untuk soal yang salah.`, href: `/siswa/hasil/${a.id}` });
+    await db.insert(notifications).values({ userId: user.id, kind: "quiz", title: `Hasil ${quiz.title} sudah keluar`, body: `Nilai kamu ${score}. Lihat pembahasan untuk soal yang salah.`, href: `/student/results/${a.id}` });
   }
-  redirect(`/siswa/hasil/${a.id}`);
+  redirect(`/student/results/${a.id}`);
 }
 
 /** RUMATH "Cek jawaban": saves the isian answer and tells right away whether it was right. */

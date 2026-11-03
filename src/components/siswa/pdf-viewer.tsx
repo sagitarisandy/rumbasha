@@ -79,7 +79,7 @@ export function PdfViewer({ id, pages, start, content }: { id: number; pages: nu
 
   const go = (p: number) => {
     setPage(p);
-    router.replace(`/siswa/modul/${id}?hal=${p}`, { scroll: false });
+    router.replace(`/student/modules/${id}?hal=${p}`, { scroll: false });
   };
   const blocks = content[page] ?? content[((page - 2) % 4) + 2] ?? content[1];
   const btn = "grid size-9 place-items-center rounded-full bg-white text-ink shadow-tab transition hover:bg-primary-soft disabled:opacity-40";
