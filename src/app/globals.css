@@ -21,7 +21,42 @@
   --color-whatsapp: #13a65a;
   --color-promo-red: #bc4253;
 
+  /* E-learning v3 (Rumbasha.figcraft "Design System — v3", shadcn/ui naming where it doesn't clash). */
+  --color-primary: #3f4197;
+  --color-primary-2: #5558c9;
+  --color-primary-soft: #eef0ff;
+  --color-ink: #0e1168;
+  --color-ink-2: #4a4d72;
+  --color-subtle: #6b6e94;
+  --color-faint: #9a9cb8;
+  --color-border: #e3e5f0;
+  --color-border-2: #eceef5;
+  --color-surface: #f4f5fa;
+  --color-sidebar: #f8f9fc;
+  --color-accent: #f78433;
+  --color-accent-ink: #c25a12;
+  --color-accent-soft: #fff0e3;
+  --color-success: #16a34a;
+  --color-success-ink: #15803d;
+  --color-success-soft: #e6f6ec;
+  --color-warning: #d97706;
+  --color-warning-ink: #b45309;
+  --color-warning-soft: #fff6db;
+  --color-destructive: #dc2626;
+  --color-destructive-ink: #c62828;
+  --color-destructive-soft: #fdecec;
+  --color-info-soft: #e8f2ff;
+  --color-mint-soft: #e9f6ef;
+  --color-cream: #fff7dd;
+  --color-mapel-mtk: #3f4197;
+  --color-mapel-ipa: #14a06b;
+  --color-mapel-bind: #e5574d;
+  --color-mapel-bing: #2a86db;
+  --color-mapel-ips: #0e9aa0;
+  --color-mapel-tryout: #f78433;
+
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-math: "Times New Roman", Times, "Liberation Serif", serif;
   --font-tight: var(--font-inter-tight), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   --shadow-card: 0 16px 40px 0 rgb(14 17 104 / 0.08);
@@ -29,6 +64,11 @@
   --shadow-float: 0 12px 32px 0 rgb(14 17 104 / 0.14);
   --shadow-photo: 0 14px 30px 0 rgb(14 17 104 / 0.18);
   --shadow-cta: 0 8px 20px 0 rgb(247 132 51 / 0.3);
+  --shadow-btn: 0 6px 14px 0 rgb(63 65 151 / 0.35);
+  --shadow-btn-accent: 0 6px 14px 0 rgb(247 132 51 / 0.4);
+  --shadow-panel: 0 8px 24px 0 rgb(14 17 104 / 0.06);
+  --shadow-pop: 0 24px 60px 0 rgb(14 17 104 / 0.18);
+  --shadow-tab: 0 1px 3px 0 rgb(14 17 104 / 0.1);
 
   --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
   --animate-marquee-reverse: marquee-reverse var(--marquee-duration, 40s) linear infinite;
@@ -70,6 +110,44 @@ body {
   color: var(--color-navy);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Math notation (MathText): serif, upright digits, italic variables, stacked fractions. */
+.math {
+  font-family: var(--font-math);
+  font-size: 1.12em;
+  white-space: nowrap;
+}
+.math i {
+  font-style: italic;
+  padding-right: 0.04em;
+}
+.math .frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  margin: 0 0.12em;
+  font-size: 0.82em;
+  line-height: 1.05;
+}
+.math .frac > span:first-child {
+  border-bottom: 1px solid currentColor;
+  padding: 0 0.15em;
+}
+.math .sqrt {
+  border-top: 1px solid currentColor;
+  padding: 0 0.1em;
+  margin-left: 0.05em;
+}
+.math sup,
+.math sub {
+  font-size: 0.7em;
 }
 
 /* Section headings in the design use 0.03em tracking (e.g. 0.96px on 32px). */

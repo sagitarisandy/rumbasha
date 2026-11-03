@@ -1,7 +1,7 @@
 import { whatsappUrl } from "./data";
 import { WhatsAppIcon } from "./icons";
 
-/** "Chat Admin" button pinned to the bottom-right corner of every page. */
+/** "Chat Admin" button pinned to the bottom-right corner of the landing pages. */
 export default function WhatsAppFloat() {
   return (
     <a

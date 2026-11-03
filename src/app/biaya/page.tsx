@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import BiayaPage from "@/components/biaya/BiayaPage";
 import { MotionProvider } from "@/components/home-option-2/motion";
+import WhatsAppFloat from "@/components/home-option-2/WhatsAppFloat";
 
 export const metadata: Metadata = {
   title: "Paket & Harga — Rumbasha",
@@ -15,6 +16,7 @@ export default function Page() {
       <Suspense>
         <BiayaPage />
       </Suspense>
+      <WhatsAppFloat />
     </MotionProvider>
   );
 }
