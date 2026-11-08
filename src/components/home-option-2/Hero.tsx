@@ -26,9 +26,9 @@ export default function Hero() {
   const photoY = useTransform(scrollYProgress, [0, 1], [0, -40]);
 
   return (
-    <section ref={ref} className="relative bg-lavender pb-40 pt-[132px] lg:h-[847px] lg:pb-0 lg:pt-0">
+    <section ref={ref} className="relative bg-lavender pb-40 pt-[132px] lg:h-[920px] lg:pb-0 lg:pt-0">
       <div className="relative mx-auto h-full max-w-[1200px] px-5 xl:px-0">
-        <div className="relative z-10 max-w-[600px] lg:pt-[237px]">
+        <div className="relative z-10 max-w-[600px] lg:pt-[190px]">
           <motion.p {...fadeUp(0.1)} className="text-sm font-semibold uppercase tracking-[0.6px] text-orange">
             Satu Partner untuk Seluruh Jenjang • SD - SMP - SMA
           </motion.p>
@@ -58,7 +58,7 @@ export default function Hero() {
         </div>
 
         {/* Right-hand art */}
-        <div className="relative mx-auto mt-12 aspect-[667/528] w-full max-w-[667px] lg:absolute lg:left-[564px] lg:top-[118px] lg:mt-0 lg:w-[667px] xl:left-[564px]">
+        <div className="relative mx-auto mt-12 aspect-[667/528] w-full max-w-[667px] lg:absolute lg:left-[564px] lg:top-[150px] lg:mt-0 lg:w-[667px] xl:left-[564px]">
           <motion.div
             style={{ y: blobY, left: pct(27, ART_W), top: pct(92, ART_H), width: pct(628, ART_W) }}
             initial={{ opacity: 0, scale: 0.85 }}
