@@ -15,7 +15,7 @@ const footerHref: Record<string, string> = {
   "Persiapan TKA SMP": "/pricing?jenjang=smp",
   "Kelas Privat": "/pricing",
   Fasilitas: "/#fasilitas",
-  "Kisah Alumni": "/alumni/rizky",
+  "Kisah Alumni": "/alumni",
   FAQ: "/#faq",
 };
 

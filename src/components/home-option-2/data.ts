@@ -10,8 +10,8 @@ export const navItems = [
   { label: "Program", href: "/#program", hasMenu: true },
   { label: "Fasilitas", href: "/#fasilitas" },
   { label: "Biaya", href: "/pricing" },
-  { label: "Cabang", href: "/#kontak" },
-  { label: "Alumni", href: "/alumni/rizky" },
+  { label: "Cabang", href: "/#cabang" },
+  { label: "Alumni", href: "/alumni" },
   { label: "FAQ", href: "/#faq" },
 ];
 

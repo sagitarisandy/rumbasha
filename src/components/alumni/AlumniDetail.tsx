@@ -94,7 +94,7 @@ export default function AlumniDetail() {
                 Beranda
               </Link>
               <span className="mx-2">›</span>
-              <Link href="/#alumni" className="hover:text-orange">
+              <Link href="/alumni" className="hover:text-orange">
                 Kisah Sukses
               </Link>
               <span className="mx-2">›</span>

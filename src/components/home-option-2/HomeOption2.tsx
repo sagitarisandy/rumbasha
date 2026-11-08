@@ -1,6 +1,7 @@
 import Aktivitas from "./Aktivitas";
 import AppPromo from "./AppPromo";
 import BuktiAlumni from "./BuktiAlumni";
+import Cabang from "./Cabang";
 import CtaBanner from "./CtaBanner";
 import Faq from "./Faq";
 import Footer from "./Footer";
@@ -29,6 +30,7 @@ export default function HomeOption2() {
         <VideoStories />
         <Aktivitas />
         <AppPromo />
+        <Cabang />
         <CtaBanner />
         <Faq />
       </main>
