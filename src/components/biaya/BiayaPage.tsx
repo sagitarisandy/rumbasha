@@ -15,18 +15,18 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 function CheckIcon({ light }: { light?: boolean }) {
   return (
-    <svg viewBox="0 0 20 20" className="h-[18px] w-[18px] shrink-0" aria-hidden>
-      <circle cx="10" cy="10" r="9" fill={light ? "#ffffff" : "#e3f6ec"} />
-      <path d="M6 10.2l2.6 2.6L14 7.6" fill="none" stroke={light ? "#3f4197" : "#13a65a"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <svg viewBox="0 0 20 20" className="h-6 w-6 shrink-0" aria-hidden>
+      <circle cx="10" cy="10" r="9.5" fill={light ? "#ffffff" : "#13a65a"} />
+      <path d="M5.8 10.3l2.8 2.8 5.6-5.8" fill="none" stroke={light ? "#3f4197" : "#ffffff"} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
 function DashIcon() {
   return (
-    <svg viewBox="0 0 20 20" className="h-[18px] w-[18px] shrink-0" aria-hidden>
-      <circle cx="10" cy="10" r="9" fill="#eef0fb" />
-      <path d="M6.5 10h7" stroke="#a9abc4" strokeWidth="2" strokeLinecap="round" />
+    <svg viewBox="0 0 20 20" className="h-6 w-6 shrink-0" aria-hidden>
+      <circle cx="10" cy="10" r="9.5" fill="#e4e6f5" />
+      <path d="M6.5 10h7" stroke="#7d80a8" strokeWidth="2.2" strokeLinecap="round" />
     </svg>
   );
 }
@@ -160,14 +160,14 @@ export default function BiayaPage() {
               <AnimatePresence mode="wait">
                 <motion.div key={tab.id} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.3 }}>
                   <p className="text-sm font-semibold uppercase tracking-[2px] text-orange">{tab.eyebrow}</p>
-                  <h1 className="heading-tracking mt-3 text-[30px] font-bold leading-[1.3] text-navy sm:text-[40px]">{tab.title}</h1>
+                  <h1 className="mt-3 text-balance text-[30px] font-extrabold leading-[1.25] tracking-normal text-navy sm:text-[40px]">{tab.title}</h1>
                   <p className="mx-auto mt-4 max-w-[700px] text-base leading-[1.5] text-muted">{tab.desc}</p>
                 </motion.div>
               </AnimatePresence>
             </div>
 
             <div className="mt-9 flex flex-col items-center">
-              <p className="mb-2 w-full max-w-[448px] text-xs font-medium text-navy">Pilih jenjang atau program</p>
+              <p className="mb-2 text-center text-xs font-medium text-navy">Pilih jenjang atau program</p>
               <div role="tablist" className="flex flex-wrap justify-center gap-1 rounded-xl border border-line bg-white p-1.5 shadow-[0_4px_14px_rgb(14_17_104/0.06)]">
                 {biayaTabs.map((t) => (
                   <button

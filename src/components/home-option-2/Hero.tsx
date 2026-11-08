@@ -34,7 +34,7 @@ export default function Hero() {
           </motion.p>
           <motion.h1
             {...fadeUp(0.2)}
-            className="mt-4 text-[32px] font-bold uppercase leading-[1.2] tracking-[0.02em] text-navy sm:text-[40px] lg:text-[44px]"
+            className="mt-4 text-[32px] font-extrabold uppercase leading-[1.15] tracking-normal text-navy sm:text-[40px] lg:text-[44px]"
           >
             Dari Langkah Pertama, Menuju <span className="text-orange">Puncak Prestasi</span> Bersama Rumbasha
           </motion.h1>

@@ -19,19 +19,16 @@ export const jenjangColumns = [
   {
     icon: "clipboard",
     title: "FONDASI KUAT SEJAK KELAS 4 SD",
-    body: "Rumbasha menguatkan dasar matematika, literasi, dan sains supaya nilai rapor naik dan anak siap melangkah ke SMP pilihannya.",
     cta: "LIHAT PROGRAM SD",
   },
   {
     icon: "graduation",
     title: "PERSIAPAN TKA DAN SELEKSI SMA FAVORIT",
-    body: "Tes penempatan gratis menentukan titik mulai yang tepat. Murid SMP berlatih bertahap lewat modul, tryout TKA berkala, dan pembahasan soal sampai benar-benar paham.",
     cta: "LIHAT PROGRAM SMP",
   },
   {
     icon: "book",
     title: "KONSULTASI PILIH SMA DAN JALUR SPMB",
-    body: "Konselor membantu memilih SMA dan jalur pendaftaran yang paling sesuai, lalu mendampingi orang tua sampai pengumuman hasil seleksi.",
     cta: "JADWALKAN KONSULTASI",
   },
 ] as const;

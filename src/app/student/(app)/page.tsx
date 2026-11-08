@@ -170,10 +170,13 @@ export default async function BerandaPage() {
       </section>
 
       {promo?.active && (
-        <Link href={promo.href} className="relative mt-8 block overflow-hidden rounded-[22px] bg-linear-to-br from-[#ff9a4d] to-[#f47a22] p-6 text-white shadow-btn-accent">
+        <Link href={promo.href} className="relative mt-8 block overflow-hidden rounded-[22px] bg-linear-to-br from-[#3f4197] to-[#0e1168] p-6 text-white shadow-btn-accent">
+          <span aria-hidden className="absolute -right-10 -top-12 h-40 w-40 rounded-full bg-white/[0.07]" />
+          <span aria-hidden className="absolute bottom-3 right-2 h-[120px] w-[120px] rounded-full bg-[#ff9a4d]/30 blur-2xl sm:right-8" />
+          <span aria-hidden className="absolute right-[38%] top-4 h-3 w-3 rounded-full bg-[#ffad44]" />
           <p className="text-xs text-white/85">{promo.label}</p>
           <p className="mt-1 max-w-[62%] text-[20px] font-bold leading-snug">{promo.title}</p>
-          <span className="mt-4 inline-flex h-9 items-center rounded-[18px] bg-white px-4 text-sm font-semibold text-accent-ink">{promo.cta}</span>
+          <span className="mt-4 inline-flex h-9 items-center rounded-[18px] bg-[#ff9a4d] px-4 text-sm font-semibold text-white">{promo.cta}</span>
           <Rumbi pose="koin" className="absolute -bottom-2 right-4 h-[130px] sm:right-10" />
         </Link>
       )}

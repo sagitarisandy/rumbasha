@@ -155,7 +155,6 @@ export default function ProgramJenjang() {
                 </motion.div>
                 <div className="flex-1">
                   <h3 className="mt-[30px] max-w-[360px] text-lg font-bold leading-[1.36] tracking-[0.03em]">{col.title}</h3>
-                  <p className="mt-3 max-w-[360px] text-base leading-[1.5] text-white/85">{col.body}</p>
                 </div>
                 <a
                   href="#program"
