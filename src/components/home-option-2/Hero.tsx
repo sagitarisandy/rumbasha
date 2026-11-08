@@ -30,30 +30,29 @@ export default function Hero() {
       <div className="relative mx-auto h-full max-w-[1200px] px-5 xl:px-0">
         <div className="relative z-10 max-w-[600px] lg:pt-[237px]">
           <motion.p {...fadeUp(0.1)} className="text-sm font-semibold uppercase tracking-[0.6px] text-orange">
-            Bimbel SD dan SMP
+            Satu Partner untuk Seluruh Jenjang • SD - SMP - SMA
           </motion.p>
           <motion.h1
             {...fadeUp(0.2)}
-            className="mt-4 text-[40px] font-bold leading-[1.2] tracking-[0.03em] text-navy sm:text-5xl lg:text-[56px]"
+            className="mt-4 text-[32px] font-bold uppercase leading-[1.2] tracking-[0.02em] text-navy sm:text-[40px] lg:text-[44px]"
           >
-            Dari Dasar Sampai <br className="hidden sm:block" />
-            Lolos <span className="text-orange">SMA Favorit</span>
+            Dari Langkah Pertama, Menuju <span className="text-orange">Puncak Prestasi</span> Bersama Rumbasha
           </motion.h1>
-          <motion.p {...fadeUp(0.3)} className="mt-6 max-w-[470px] text-lg font-medium leading-[1.5] text-navy">
-            Bangun dasar yang kuat sejak SD, lalu siapkan TKA dan seleksi masuk SMA bersama Rumbasha.
+          <motion.p {...fadeUp(0.3)} className="mt-6 max-w-[540px] text-base lg:text-lg font-medium leading-[1.5] text-navy">
+            Menemani perjalanan akademik dari SD hingga SMA untuk membangun fondasi berpikir kritis yang kokoh. Bersama Rumbasha, anak didik dilatih menguasai materi secara mendalam agar tumbuh menjadi pribadi yang percaya diri menghadapi seleksi masa depan
           </motion.p>
           <motion.div {...fadeUp(0.4)} className="mt-[26px] flex flex-wrap gap-3.5">
             <a
               href="#daftar"
               className="inline-flex h-[52px] items-center rounded-xl bg-orange px-[26px] text-base font-semibold text-white shadow-cta transition hover:-translate-y-0.5 hover:bg-[#ff9248]"
             >
-              Daftar Sekarang
+              Konsultasikan Kurikulum Anak
             </a>
             <a
               href="#kontak"
               className="inline-flex h-[52px] items-center rounded-xl border-[1.5px] border-navy px-[26px] text-base font-semibold text-navy transition hover:bg-navy hover:text-white"
             >
-              Temukan Cabang Terdekat
+              Lokasi Terdekat
             </a>
           </motion.div>
         </div>
